@@ -1,0 +1,100 @@
+---
+title: "DATA607 WEEK11 DISCUSS"
+author: "Chris_Ayre"
+date: "April 10, 2019"
+output:
+    prettydoc::html_pretty:
+      theme: architect
+---
+
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/zillow%20banner.JPG?raw=true)
+
+# Zillow Recommender System
+
+
+### Perform a Scenario Design analysis as described below.  Consider whether it makes sense for your selected recommender system to perform scenario design twice, once for the organization (e.g. Amazon.com) and once for the organization's customers.
+
+
+## Who are Zillow's Target Users?
+
+__Zillow's target user is anyone in the market for a new home__
+
+_Buying a home or renting an apartment is a big commitment, and not an easy one to make. There are many choices, and between choosing from available homes, real estate agents, and lenders, it can all become quite overwhelming._
+
+_Zillow aims to simplify the house hunting process by giving you all the information you need on one site._
+
+
+## What are Zillow's key goals ?
+
+__The Users' key goal is to purchase a home. Not only does Zillow seek to match buyers with homes, their primary goal is to be the premiere one stop website for all your real estate needs.__
+
+_Like many other home buying or apartment hunting websites, Zillow posts sortable listings for homes and apartments for sale and rent throughout the United States. However, Zillow offers more than the typical real estate site._
+
+_Homeowners can use the mortgage calculator to estimate their monthly mortgage payment or search through current mortgage rates from dozens of lenders. Renters can search through both apartments and houses for rent. Zillow also offers listings for local real estate agents, articles and guides for homeownership and rentals, and a mobile app for house hunting while on the go._
+
+
+## How can Zillow help their users accomplish those goals?
+
+__Zillow provides home hunters with a wealth of information, tools and resources to help users accomplish the goal of purchasing a home.__
+
+_Property Listings - Users can search homes for sale by owner, and foreclosures. Renters can search a broad network of apartments and houses available for rent. Both search options have filters that allow you to search by price, size, year built, and number of rooms._
+
+_Professional Listings - The site has listings for local real estate agents, mortgage lenders, and professional contractors. Each listing features a profile and includes customer reviews._
+
+_Online Calculators - Zillow offers easy to use mortgage, refinance and debt -to-income calculators. Users can use the mortgage calculator to estimate their monthly mortgage payment._
+
+_Advice - Zillow has information on buying a home, mortgage refinancing, and even decorating tips. And with the "Ask a Question" feature, you can ask other community members for advice on topics not covered on the site._
+
+_Mobile App - The Zillow mobile app companion eliminates the need for printing or saving different addresses and information. With the app, you can search while you're out house hunting, or quickly look up demographic information for a specific neighborhood._
+
+
+
+### Attempt to reverse engineer what you can about the site, from the site interface and any available information that you can find on the Internet or elsewhere.
+
+There are numerous ways Zillow provides recommendations. The most common popular is through communication channels such as emails, text or push notifications from the app. While browsing the details page of a home, Users will also see recommendations of similiar homes. While on Zillow's homepage Users receive recommendations to to look at homes with similiarities to homes the user has previously shown interest in. Zillow not only recommends homes but any content that might be relevant to the home buyers such as recommending Agents and lenders. 
+
+Below are examples of collaborative filtering and Content based modeling, which are the models that account for all of the recommendations the typical Zillow user experiences.
+
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/collaborative%20filtering%20example.JPG?raw=true)
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/content%20based%20modeling%20example.JPG?raw=true)
+
+There are two families of models: collaborative filtering (only need user<->item interaction) and content based modeling (involves defining and mapping user & item information to machine learning variables). Collaborative filtering is an easy approach to start with via the below open source and one click services.
+
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/open%20source%20n%20oneclick%20services.JPG?raw=true)
+
+ A new technique called interleaving replaces the need to A/B new models separately and provides statistically significant results on comparative model performance without having to pay people to manually rate results.
+ 
+Zillow saves an offline dataset for testing new models and make the pipeline to validate those online via interleaving or an A/B test very easy. If that test is successful, the model is rolled out to 100%.
+ 
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/100%25%20roll%20out.JPG?raw=true)
+
+At Zillow, they get roughly 1 TB of relevant user & home data a day to process.Below are the top data sources.
+
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/data%20sources.JPG?raw=true)
+
+Below is a summary of Zillow's standard model pipeline
+
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/pipeline.JPG?raw=true)
+
+These metrics are the most important for new models
+
+![](https://github.com/Chris-Ayre/DATA607-Week11-Discussion/blob/master/model%20evaluation%20metrics.JPG?raw=true)
+
+
+
+### Include specific recommendations about how to improve the site's recommendation capabilities going forward.
+
+Zillow leverage the best available technology to constantly improve their systems, they utilize advanced deep learning and  machine learning. I do find their recommendations to be of a high quality but they are also high quantity and could be annoying at times. I believe a great improvement would be to allow Users to adjust the volume of recommendations they receive.
+
+
+
+### Sources
+
+_Building the Next New York Times Recommendation Engine - NY Times_
+_https://open.blogs.nytimes.com/2015/08/11/building-the-next-new-york-times-recommendation-engine/_
+
+_Zillow Website Review_
+_https://www.moneycrashers.com/zillow-review-real-estate/_
+
+_Introduction to Recommendations at Zillow_
+_https://www.zillow.com/data-science/introduction-recommendations-zillow/_
